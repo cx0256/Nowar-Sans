@@ -1,5 +1,6 @@
 bin/
 build/
+out/
 node_modules/
 references/
 doc/
@@ -21,5 +22,7 @@ preview/test-fonts
 ns-proof-page/fonts
 hint/build
 hint/source/fonts
+hint/source/fonts.json
 hint/out
 package-lock.json
+

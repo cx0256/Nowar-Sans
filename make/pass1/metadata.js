@@ -30,6 +30,12 @@ function convPostscript(name) {
 function compatibilityName(family, style) {
 	if (style === "Regular" || style === "Bold" || style === "Italic" || style === "Bold Italic") {
 		return { family, style, standardFour: true };
+	} else if (style.match(" Bold Italic")) {
+		return { family: family + " " + style.replace(/ Bold Italic/, ""), style: "Bold Italic", standardFour: false };
+	} else if (style.match(" Bold")) {
+		return { family: family + " " + style.replace(/ Bold/, ""), style: "Bold", standardFour: false };
+	} else if (style.match(" Italic")) {
+		return { family: family + " " + style.replace(/ Italic/, ""), style: "Italic", standardFour: false };
 	} else {
 		return { family: family + " " + style, style: "Regular", standardFour: false };
 	}

@@ -3,6 +3,7 @@
 const { quadify, introduce, build, gc, merge: { below: merge } } = require("megaminx");
 const { isKanji } = require("caryll-iddb");
 const italize = require("../common/italize");
+const condense = require("../common/condense");
 
 const fs = require("fs-extra");
 const path = require("path");
@@ -21,6 +22,8 @@ module.exports = async function makeFont(ctx, config, argv) {
 
 	// italize
 	if (argv.italize) italize(b, 10);
+	// condense
+	if (argv.condense) condense(b, 0.9);
 	for (let j = globalConfig.CVT_PADDING; j < b.cvt_.length; j++) {
 		a.cvt_[j] = b.cvt_[j];
 	}

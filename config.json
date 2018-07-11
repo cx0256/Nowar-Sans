@@ -1,83 +1,111 @@
 {
-	"prefix": "sarasa",
+	"prefix": "Nowar",
 	"CVT_PADDING": 300,
 
-	"familyOrder": ["gothic", "ui", "mono", "monoT", "term"],
+	"familyOrder": ["Sans", "UI", "CompactSans", "CompactUI"],
 	"families": {
-		"gothic": {
+		"Sans": {
 			"isMono": false,
-			"latinGroup": "noto-sans",
+			"latinGroup": "NotoSans",
 			"naming": {
-				"en_US": "Sarasa Gothic",
-				"zh_CN": "更纱黑体",
-				"zh_TW": "更紗黑體",
-				"ja_JP": "更紗ゴシック"
+				"en_US": "Nowar Sans",
+				"zh_CN": "有爱黑体",
+				"zh_TW": "有愛黑體"
 			}
 		},
-		"ui": {
+		"UI": {
 			"isPWID": true,
 			"isMono": false,
-			"latinGroup": "noto-sans",
+			"latinGroup": "NotoSans",
 			"naming": {
-				"en_US": "Sarasa UI",
-				"zh_CN": "更纱黑体 UI",
-				"zh_TW": "更紗黑體 UI",
-				"ja_JP": "更紗ゴシック UI"
+				"en_US": "Nowar UI",
+				"zh_CN": "有爱黑体 UI",
+				"zh_TW": "有愛黑體 UI"
 			}
 		},
-		"mono": {
-			"isMono": true,
-			"latinGroup": "iosevka",
+		"CompactSans": {
+			"isMono": false,
+			"latinGroup": "NotoSansCond",
 			"naming": {
-				"en_US": "Sarasa Mono",
-				"zh_CN": "等距更纱黑体",
-				"zh_TW": "等距更紗黑體",
-				"ja_JP": "更紗等幅ゴシック"
+				"en_US": "Nowar Compact Sans",
+				"zh_CN": "有爱窄黑体",
+				"zh_TW": "有愛窄黑體"
 			}
 		},
-		"monoT": {
-			"isMono": true,
-			"isType": true,
-			"latinGroup": "iosevka",
+		"CompactUI": {
+			"isPWID": true,
+			"isMono": false,
+			"latinGroup": "NotoSansCond",
 			"naming": {
-				"en_US": "Sarasa Mono T",
-				"zh_CN": "等距更纱黑体 T",
-				"zh_TW": "等距更紗黑體 T",
-				"ja_JP": "更紗等幅ゴシック T"
-			}
-		},
-		"term": {
-			"isMono": true,
-			"latinGroup": "iosevka-term",
-			"isTerm": true,
-			"naming": {
-				"en_US": "Sarasa Term",
-				"zh_CN": "Sarasa Term",
-				"zh_TW": "Sarasa Term",
-				"ja_JP": "Sarasa Term"
+				"en_US": "Nowar Compact UI",
+				"zh_CN": "有爱窄黑体 UI",
+				"zh_TW": "有愛窄黑體 UI"
 			}
 		}
 	},
 
-	"styleOrder": ["regular", "bold", "italic", "bolditalic"],
+	"styleOrder": [
+		"ExLt", "ExLtIt",
+		"Lt", "LtIt",
+		"R", "It",
+		"M", "MIt",
+		"Bd", "BdIt",
+		"ExBd", "ExBdIt"
+	],
 	"styles": {
-		"regular": { "name": "Regular" },
-		"bold": { "name": "Bold" },
-		"italic": {
-			"name": "Italic",
-			"uprightStyleMap": "regular"
+		"ExLt": {
+			"name": "ExtraLight"
 		},
-		"bolditalic": {
+		"ExLtIt": {
+			"italic": true,
+			"name": "ExtraLight Italic",
+			"cjkStyleMap": "ExLt"
+		},
+		"Lt": {
+			"name": "Light"
+		},
+		"LtIt": {
+			"italic": true,
+			"name": "Light Italic",
+			"cjkStyleMap": "Lt"
+		},
+		"R": {
+			"name": "Regular"
+		},
+		"It": {
+			"italic": true,
+			"name": "Italic",
+			"cjkStyleMap": "R"
+		},
+		"M": {
+			"name": "Medium"
+		},
+		"MIt": {
+			"italic": true,
+			"name": "Medium Italic",
+			"cjkStyleMap": "M"
+		},
+		"Bd": {
+			"name": "Bold"
+		},
+		"BdIt": {
+			"italic": true,
 			"name": "Bold Italic",
-			"uprightStyleMap": "bold"
+			"cjkStyleMap": "Bd"
+		},
+		"ExBd": {
+			"name": "ExtraBold"
+		},
+		"ExBdIt": {
+			"italic": true,
+			"name": "ExtraBold Italic",
+			"cjkStyleMap": "ExBd"
 		}
 	},
 
-	"subfamilyOrder": ["cl", "sc", "tc", "j"],
+	"subfamilyOrder": ["CN", "TW"],
 	"subfamilies": {
-		"cl": { "name": "CL" },
-		"sc": { "name": "SC" },
-		"tc": { "name": "TC" },
-		"j": { "name": "J" }
+		"CN": { "name": "CN" },
+		"TW": { "name": "TW" }
 	}
 }

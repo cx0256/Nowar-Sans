@@ -12,6 +12,7 @@ const {
 const { isKanji } = require("caryll-iddb");
 
 const italize = require("../common/italize");
+const condense = require("../common/condense");
 const { nameFont } = require("./metadata.js");
 
 const fs = require("fs-extra");
@@ -30,7 +31,19 @@ const ENCODINGS = {
 		jis: false,
 		korean: false
 	},
+	CN: {
+		gbk: true,
+		big5: false,
+		jis: false,
+		korean: false
+	},
 	TC: {
+		gbk: false,
+		big5: true,
+		jis: false,
+		korean: false
+	},
+	TW: {
 		gbk: false,
 		big5: true,
 		jis: false,
@@ -74,6 +87,8 @@ async function pass(ctx, config, argv) {
 
 	// italize
 	if (argv.italize) italize(b, 10);
+	// condense
+	if (argv.condense) condense(b, 0.9);
 
 	// merge and build
 	await ctx.run(mergeBelow, "a", "a", "c", { mergeOTL: true });
@@ -82,7 +97,7 @@ async function pass(ctx, config, argv) {
 	await ctx.run(nameFont, "a", {
 		en_US: {
 			copyright:
-				"Copyright 2015-2018, Belleve Invis (belleve@typeof.net). Portions Copyright © 2014, 2015 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. Portions Copyright 2012 Google Inc.",
+				"Copyright 2018 Cyano Hao (c@cyano.cn), with Reserved Font Name 'Nowar', '有爱' and '有愛'. Portions Copyright 2015-2018, Belleve Invis (belleve@typeof.net). Portions Copyright © 2014, 2015 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. Portions Copyright 2012 Google Inc.",
 			version: fs.readJsonSync(path.resolve(__dirname, "../../package.json")).version,
 			family: globalConfig.families[argv.family].naming.en_US + " " + argv.subfamily,
 			style: globalConfig.styles[argv.style].name
@@ -94,10 +109,10 @@ async function pass(ctx, config, argv) {
 		zh_TW: {
 			family: globalConfig.families[argv.family].naming.zh_TW + " " + argv.subfamily,
 			style: globalConfig.styles[argv.style].name
-		},
-		ja_JP: {
-			family: globalConfig.families[argv.family].naming.ja_JP + " " + argv.subfamily,
-			style: globalConfig.styles[argv.style].name
+		// },
+		// ja_JP: {
+		// 	family: globalConfig.families[argv.family].naming.ja_JP + " " + argv.subfamily,
+		// 	style: globalConfig.styles[argv.style].name
 		}
 	});
 	await ctx.run(setEncodings, "a", ENCODINGS[argv.subfamily]);

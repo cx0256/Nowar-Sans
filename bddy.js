@@ -42,10 +42,10 @@ const SUBFAMILIES = config.subfamilyOrder;
 const STYLES = config.styleOrder;
 const version = fs.readJsonSync(path.resolve(__dirname, "package.json")).version;
 
-function deItalizedNameOf(set) {
+function cjkNameOf(set) {
 	return (set + "")
 		.split("-")
-		.map(w => (config.styles[w] ? config.styles[w].uprightStyleMap || w : w))
+		.map(w => (config.styles[w] ? config.styles[w].cjkStyleMap || w : w))
 		.join("-");
 }
 
@@ -55,7 +55,7 @@ module.exports = function(ctx, the) {
 		const [_, $1, $2] = await this.need(
 			target.dir,
 			`build/pass1/${family}-${region}-${style}.ttf`,
-			`hint/out/${region}-${deItalizedNameOf(style)}.ttf`
+			`hint/out/${region}-${cjkNameOf(style)}.ttf`
 		);
 		const tmpOTD = `${target.dir}/${target.name}.otd`;
 		await runBuildTask.call(this, "make/pass2/build.js", {
@@ -63,7 +63,8 @@ module.exports = function(ctx, the) {
 			kanji: $2,
 			o: tmpOTD,
 
-			italize: deItalizedNameOf(style) === style ? false : true
+			italize: !!config.styles[style].italic,
+			condense: !!config.styles[style].condensed
 		});
 		await this.run("otfccbuild", tmpOTD, "-o", target, "--keep-average-char-width", "-O3");
 		await this.rm(tmpOTD);
@@ -74,8 +75,8 @@ module.exports = function(ctx, the) {
 		const [_, $1, $2, $3] = await this.need(
 			target.dir,
 			`sources/${latinFamily}/${latinFamily}-${style}.ttf`,
-			`build/as0/${family}-${region}-${deItalizedNameOf(style)}.ttf`,
-			`build/ws0/${family}-${region}-${deItalizedNameOf(style)}.ttf`
+			`build/as0/${family}-${region}-${cjkNameOf(style)}.ttf`,
+			`build/ws0/${family}-${region}-${cjkNameOf(style)}.ttf`
 		);
 		await runBuildTask.call(this, "make/pass1/build.js", {
 			main: $1,
@@ -86,7 +87,8 @@ module.exports = function(ctx, the) {
 			family: family,
 			subfamily: config.subfamilies[region].name,
 			style: style,
-			italize: deItalizedNameOf(target.name) === target.name ? false : true
+			italize: !!config.styles[style].italic,
+			condense: !!config.styles[style].condensed
 		});
 		await sanitize.call(this, target, target + ".tmp.ttf");
 	});
@@ -138,7 +140,7 @@ module.exports = function(ctx, the) {
 		let dependents = [];
 		const wSet = new Set();
 		for (let st of STYLES) {
-			wSet.add(deItalizedNameOf(st));
+			wSet.add(cjkNameOf(st));
 		}
 
 		const config = {
@@ -182,7 +184,7 @@ module.exports = function(ctx, the) {
 	// SHS dumps
 	the.file(`build/shs/*.otd`).def(async function(target) {
 		const name = target.$1;
-		const [_, $1] = await this.need(target.dir, `sources/shs/${name}.otf`);
+		const [_, $1] = await this.need(target.dir, `sources/shs/${name}.ttf`);
 		await this.run(`otfccdump`, `-o`, target, $1);
 	});
 
