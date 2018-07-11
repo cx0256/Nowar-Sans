@@ -2,7 +2,7 @@
 	"prefix": "Nowar",
 	"CVT_PADDING": 300,
 
-	"familyOrder": ["Sans", "UI", "CompactSans", "CompactUI"],
+	"familyOrder": ["Sans", "UI"],
 	"families": {
 		"Sans": {
 			"isMono": false,
@@ -22,83 +22,82 @@
 				"zh_CN": "有爱黑体 UI",
 				"zh_TW": "有愛黑體 UI"
 			}
-		},
-		"CompactSans": {
-			"isMono": false,
-			"latinGroup": "NotoSansCond",
-			"naming": {
-				"en_US": "Nowar Compact Sans",
-				"zh_CN": "有爱窄黑体",
-				"zh_TW": "有愛窄黑體"
-			}
-		},
-		"CompactUI": {
-			"isPWID": true,
-			"isMono": false,
-			"latinGroup": "NotoSansCond",
-			"naming": {
-				"en_US": "Nowar Compact UI",
-				"zh_CN": "有爱窄黑体 UI",
-				"zh_TW": "有愛窄黑體 UI"
-			}
 		}
 	},
 
 	"styleOrder": [
-		"ExLt", "ExLtIt",
-		"Lt", "LtIt",
-		"R", "It",
-		"M", "MIt",
-		"Bd", "BdIt",
-		"ExBd", "ExBdIt"
+		"CondExLt", "CondExLtIt",
+		"CondLt", "CondLtIt",
+		"Cond", "CondIt",
+		"CondM", "CondMIt",
+		"CondBd", "CondBdIt",
+		"CondExBd", "CondExBdIt"
 	],
 	"styles": {
-		"ExLt": {
-			"name": "ExtraLight"
-		},
-		"ExLtIt": {
-			"italic": true,
-			"name": "ExtraLight Italic",
+		"CondExLt": {
+			"condensed": true,
+			"name": "Condensed ExtraLight",
 			"cjkStyleMap": "ExLt"
 		},
-		"Lt": {
-			"name": "Light"
-		},
-		"LtIt": {
+		"CondExLtIt": {
+			"condensed": true,
 			"italic": true,
-			"name": "Light Italic",
+			"name": "Condensed ExtraLight Italic",
+			"cjkStyleMap": "ExLt"
+		},
+		"CondLt": {
+			"condensed": true,
+			"name": "Condensed Light",
 			"cjkStyleMap": "Lt"
 		},
-		"R": {
-			"name": "Regular"
-		},
-		"It": {
+		"CondLtIt": {
+			"condensed": true,
 			"italic": true,
-			"name": "Italic",
+			"name": "Condensed Light Italic",
+			"cjkStyleMap": "Lt"
+		},
+		"Cond": {
+			"condensed": true,
+			"name": "Condensed",
 			"cjkStyleMap": "R"
 		},
-		"M": {
-			"name": "Medium"
-		},
-		"MIt": {
+		"CondIt": {
+			"condensed": true,
 			"italic": true,
-			"name": "Medium Italic",
+			"name": "Condensed Italic",
+			"cjkStyleMap": "R"
+		},
+		"CondM": {
+			"condensed": true,
+			"name": "Condensed Medium",
 			"cjkStyleMap": "M"
 		},
-		"Bd": {
-			"name": "Bold"
-		},
-		"BdIt": {
+		"CondMIt": {
+			"condensed": true,
 			"italic": true,
-			"name": "Bold Italic",
+			"name": "Condensed Medium Italic",
+			"cjkStyleMap": "M"
+		},
+		"CondBd": {
+			"condensed": true,
+			"name": "Condensed Bold",
 			"cjkStyleMap": "Bd"
 		},
-		"ExBd": {
-			"name": "ExtraBold"
-		},
-		"ExBdIt": {
+		"CondBdIt": {
+			"condensed": true,
 			"italic": true,
-			"name": "ExtraBold Italic",
+			"name": "Condensed Bold Italic",
+			"cjkStyleMap": "Bd"
+		},
+		"CondExBd": {
+			"condensed": true,
+			"name": "Condensed ExtraBold",
+			"cjkStyleMap": "ExBd"
+		},
+		"CondExBdIt": {
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed ExtraBold Italic",
 			"cjkStyleMap": "ExBd"
 		}
 	},
