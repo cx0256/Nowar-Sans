@@ -70,14 +70,14 @@ By the way, if you just want to build an unhinted font for WoW font pack (or any
 
 ### Premade WoW Font Packs
 
-- 有爱黑体 and 有愛黑體
-  - 有爱黑体: CN preferred (CN variant for English and 简体中文, TW variant for 繁體中文)
-  - 有愛黑體: TW preferred (TW variant for English and 繁體中文, CN variant for 简体中文)
-- Chat font (聊天)
+- Regional variants
+  - CN: CN variant preferred (CN variant for English and 简体中文, TW variant for 繁體中文)
+  - TW: TW variant preferred (TW variant for English and 繁體中文, CN variant for 简体中文)
+- Chat fonts
   - 100: Chat font are normal width.
   - 95: Chat font use Compact variant (CJK Ideographs are full width).
   - 90: Chat font use Condensed variant (CJK Ideographs are condensed).
-- Weight
+- Weights
   - L: Light (Morpheus is ExtraLight)
   - R: Regular (Morpheus is Medium)
   - M: Medium (Morpheus is Bold)
