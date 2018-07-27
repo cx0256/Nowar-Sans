@@ -191,8 +191,10 @@ module.exports = function(ctx, the) {
 	the.virt("ttf").def(async function(target) {
 		let reqs = [];
 		for (let f of FAMILIES)
-			for (let sf of SUBFAMILIES)
+			for (let sf of SUBFAMILIES) 
 				for (let st of STYLES) {
+					if (config.styles[st].ignore && config.styles[st].ignore.indexOf(f) >= 0)
+						continue;
 					reqs.push(`out/ttf/${PREFIX}-${f}-${sf}-${st}.ttf`);
 				}
 
@@ -205,6 +207,8 @@ module.exports = function(ctx, the) {
 		let reqs = [];
 		for (let f of FAMILIES)
 			for (let sf of SUBFAMILIES) {
+				if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
+					continue;
 				reqs.push(`out/ttf/${PREFIX}-${f}-${sf}-${style}.ttf`);
 			}
 		const [$$] = await this.need(reqs);
@@ -234,6 +238,8 @@ module.exports = function(ctx, the) {
 			let reqs = [];
 			for (let f of FAMILIES)
 				for (let sf of SUBFAMILIES) {
+					if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
+						continue;
 					reqs.push(`out/ttf/${PREFIX}-${f}-${sf}-${style}.ttf`);
 				}
 			await this.need(...reqs);
@@ -243,6 +249,8 @@ module.exports = function(ctx, the) {
 				n = 0;
 			for (let f of FAMILIES)
 				for (let sf of SUBFAMILIES) {
+					if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
+						continue;
 					reqs.push(`out/ttc/${PREFIX}-${style}-parts.${n}.ttf`);
 					n += 1;
 				}

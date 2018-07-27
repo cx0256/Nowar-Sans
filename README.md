@@ -10,7 +10,7 @@ The unhinted version of Nowar Sans, is originally made for customized _World of 
 
 ## To Build
 
-**WARNING**: 40 GiB free disk space on SSD required. When running with "-j8", it requires 16 GiB free memory, and takes about 18 hours.
+**WARNING**: 60 GiB free disk space on SSD required. When running with "-j8", it requires 16 GiB free memory, and takes about 18 hours.
 
 You need [Node.js](https://nodejs.org/en/) 8.5 (or newer), [otfcc](https://github.com/caryll/otfcc), [AFDKO](http://www.adobe.com/devnet/opentype/afdko.html) and [ttfautohint](https://www.freetype.org/ttfautohint) installed, then run:
 
@@ -21,9 +21,6 @@ npm install
 after the NPM packages are installed, run
 
 ```bash
-git checkout master
-node build ttf
-git checkout condensed
 node build ttf
 ```
 
@@ -32,9 +29,6 @@ to build the TTF files, it would be in `build/out` directory.
 To build TTC, type
 
 ```bash
-git checkout master
-node build ttc
-git checkout condensed
 node build ttc
 ```
 
@@ -61,6 +55,8 @@ By the way, if you just want to build an unhinted font for WoW font pack (or any
 - Sans and UI
   - Sans: Quotes (`“”`) are full width.
   - UI: Quotes (`“”`) are narrow.
+- Latin, Greek and Cyrillic Families
+  - Default: Humanist sans-serif, based on Noto Sans.
 - Compact and Condensed
   - Compact (which is part of Preferred Family): Latin, Greek and Cyrillic characters are condensed, while CJK Ideographs and Kana are not.
   - Condensed (which is part of Preferred Subfamily): All characters are condensed.
@@ -83,7 +79,7 @@ By the way, if you just want to build an unhinted font for WoW font pack (or any
   - M: Medium (Morpheus is Bold)
   - B: Bold (Morpheus is ExtraBold)
 
-Besides, you can make your own WoW Font Pack by copy `ttf` file to `World of Warcraft/Fonts` and rename it to `ARIALN.ttf`, `FRIZQT__.ttf`, …. Search web for more information.
+Besides, you can make your own WoW Font Pack by copy `ttf` files to `World of Warcraft/Fonts` and rename them to `ARIALN.ttf`, `FRIZQT__.ttf`, …. Search web for more information.
 
 ## Font Weight
 
@@ -100,7 +96,7 @@ There are 6 weights.
 
 ### Why Are Latin, Greek and Cyrillic Characters “Semi-Condensed”?
 
-If not, numbers may be displayed incompletely in WoW 简体中文 and 繁體中文, such as character level in guild frame.
+If not, numbers may be displayed incompletely in WoW 简体中文 and 繁體中文, such as character level in legacy guild frame, and numbers of reagents in profession crafting frame.
 
 ## Credit
 

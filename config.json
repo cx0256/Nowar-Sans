@@ -10,7 +10,8 @@
 			"naming": {
 				"en_US": "Nowar Sans",
 				"zh_CN": "有爱黑体",
-				"zh_TW": "有愛黑體"
+				"zh_TW": "有愛黑體",
+				"ja_JP": "Nowar Sans"
 			}
 		},
 		"UI": {
@@ -20,7 +21,8 @@
 			"naming": {
 				"en_US": "Nowar UI",
 				"zh_CN": "有爱黑体 UI",
-				"zh_TW": "有愛黑體 UI"
+				"zh_TW": "有愛黑體 UI",
+				"ja_JP": "Nowar UI"
 			}
 		},
 		"CompactSans": {
@@ -29,7 +31,8 @@
 			"naming": {
 				"en_US": "Nowar Compact Sans",
 				"zh_CN": "有爱窄黑体",
-				"zh_TW": "有愛窄黑體"
+				"zh_TW": "有愛窄黑體",
+				"ja_JP": "Nowar Compact Sans"
 			}
 		},
 		"CompactUI": {
@@ -39,7 +42,8 @@
 			"naming": {
 				"en_US": "Nowar Compact UI",
 				"zh_CN": "有爱窄黑体 UI",
-				"zh_TW": "有愛窄黑體 UI"
+				"zh_TW": "有愛窄黑體 UI",
+				"ja_JP": "Nowar Compact UI"
 			}
 		}
 	},
@@ -50,7 +54,13 @@
 		"R", "It",
 		"M", "MIt",
 		"Bd", "BdIt",
-		"ExBd", "ExBdIt"
+		"ExBd", "ExBdIt",
+		"CondExLt", "CondExLtIt",
+		"CondLt", "CondLtIt",
+		"Cond", "CondIt",
+		"CondM", "CondMIt",
+		"CondBd", "CondBdIt",
+		"CondExBd", "CondExBdIt"
 	],
 	"styles": {
 		"ExLt": {
@@ -100,7 +110,85 @@
 			"italic": true,
 			"name": "ExtraBold Italic",
 			"cjkStyleMap": "ExBd"
-		}
+		},
+		"CondExLt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"name": "Condensed ExtraLight",
+			"cjkStyleMap": "ExLt"
+		},
+		"CondExLtIt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed ExtraLight Italic",
+			"cjkStyleMap": "ExLt"
+		},
+		"CondLt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"name": "Condensed Light",
+			"cjkStyleMap": "Lt"
+		},
+		"CondLtIt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed Light Italic",
+			"cjkStyleMap": "Lt"
+		},
+		"Cond": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"name": "Condensed",
+			"cjkStyleMap": "R"
+		},
+		"CondIt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed Italic",
+			"cjkStyleMap": "R"
+		},
+		"CondM": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"name": "Condensed Medium",
+			"cjkStyleMap": "M"
+		},
+		"CondMIt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed Medium Italic",
+			"cjkStyleMap": "M"
+		},
+		"CondBd": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"name": "Condensed Bold",
+			"cjkStyleMap": "Bd"
+		},
+		"CondBdIt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed Bold Italic",
+			"cjkStyleMap": "Bd"
+		},
+		"CondExBd": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"name": "Condensed ExtraBold",
+			"cjkStyleMap": "ExBd"
+		},
+		"CondExBdIt": {
+			"ignore": ["CompactSans", "CompactUI"],
+			"condensed": true,
+			"italic": true,
+			"name": "Condensed ExtraBold Italic",
+			"cjkStyleMap": "ExBd"
+		} 
 	},
 
 	"subfamilyOrder": ["CN", "TW"],

@@ -109,10 +109,10 @@ async function pass(ctx, config, argv) {
 		zh_TW: {
 			family: globalConfig.families[argv.family].naming.zh_TW + " " + argv.subfamily,
 			style: globalConfig.styles[argv.style].name
-		// },
-		// ja_JP: {
-		// 	family: globalConfig.families[argv.family].naming.ja_JP + " " + argv.subfamily,
-		// 	style: globalConfig.styles[argv.style].name
+		},
+		ja_JP: {
+			family: globalConfig.families[argv.family].naming.ja_JP + " " + argv.subfamily,
+			style: globalConfig.styles[argv.style].name
 		}
 	});
 	await ctx.run(setEncodings, "a", ENCODINGS[argv.subfamily]);
