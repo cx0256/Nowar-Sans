@@ -47,7 +47,7 @@ getEnglishChatFont() {
 
 getHansFont() {
 	# getHansFont regionalVariant chatFontWidth weight
-	echo Nowar-NeoCompactSans-CN-${weightFilenameMap[$3]}.ttf
+	echo Nowar-NeoWarcraftSans-CN-${weightFilenameMap[$3]}.ttf
 }
 
 getHansCombatFont() {
@@ -66,7 +66,7 @@ getHansChatFont() {
 
 getHantFont() {
 	# getHantFont regionalVariant chatFontWidth weight
-	echo Nowar-NeoCompactSans-TW-${weightFilenameMap[$3]}.ttf
+	echo Nowar-NeoWarcraftSans-TW-${weightFilenameMap[$3]}.ttf
 }
 
 getHantCombatFont() {
@@ -102,18 +102,18 @@ for rv in ${regionalVariant[@]}; do
 			hantNoteFont=$(getHantNoteFont $rv $cfw $w)
 			hantChatFont=$(getHantChatFont $rv $cfw $w)
 			mkdir Fonts
-			otfccdump --no-bom --ignore-hints --pretty morpheus/$morpheus   | sed 's/ CN//;s/; ttfautohint (v*.*)//' | otfccbuild --keep-average-char-width -O3 -o Fonts/MORPHEUS.ttf
+			otfccdump --no-bom --ignore-hints --pretty morpheus/$morpheus   | sed 's/ CN//;s/-CN//;s/; ttfautohint (v*.*)//' | otfccbuild --keep-average-char-width -O3 -o Fonts/MORPHEUS.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$englishFont     | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/FRIZQT__.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$englishChatFont | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/ARIALN.ttf
-			otfccdump --no-bom --ignore-hints --pretty ttf/$hansFont        | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/ARKai_T.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$hansCombatFont  | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/ARKai_C.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$hansChatFont    | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/ARHei.ttf
-			otfccdump --no-bom --ignore-hints --pretty ttf/$hantFont        | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/bLEI00D.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$hantCombatFont  | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/bKAI00M.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$hantNoteFont    | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/bHEI00M.ttf
 			otfccdump --no-bom --ignore-hints --pretty ttf/$hantChatFont    | sed 's/; ttfautohint (v*.*)//'         | otfccbuild --keep-average-char-width -O3 -o Fonts/bHEI01B.ttf
 			cp Fonts/FRIZQT__.ttf Fonts/skurri.ttf
 			cp Fonts/FRIZQT__.ttf Fonts/FRIENDS.ttf
+			cp warcraft-ext/$hansFont Fonts/ARKai_T.ttf
+			cp warcraft-ext/$hantFont Fonts/bLEI00D.ttf
 			cp ../release-utility/license-wow-pack-roboto.txt Fonts/LICENSE.txt
 			7z a -t7z -m0=LZMA:d=512m:fb=273 -ms -mmt=on Neo-${regionalVariantName[$rv]}-${chatFontWidthName[$cfw]}-$w-$ver.7z Fonts/
 			rm -r Fonts
