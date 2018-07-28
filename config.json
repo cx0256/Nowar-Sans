@@ -2,7 +2,7 @@
 	"prefix": "Nowar",
 	"CVT_PADDING": 300,
 
-	"familyOrder": ["Sans", "UI", "CompactSans", "CompactUI"],
+	"familyOrder": ["Sans", "UI", "CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 	"families": {
 		"Sans": {
 			"isMono": false,
@@ -45,6 +45,69 @@
 				"zh_TW": "有愛窄黑體 UI",
 				"ja_JP": "Nowar Compact UI"
 			}
+		},
+		"WideSans": {
+			"isMono": false,
+			"latinGroup": "NotoSansExt",
+			"naming": {
+				"en_US": "Nowar Wide Sans",
+				"zh_CN": "有爱宽黑体",
+				"zh_TW": "有愛寬黑體",
+				"ja_JP": "Nowar Wide Sans"
+			}
+		},
+		"WideUI": {
+			"isPWID": true,
+			"isMono": false,
+			"latinGroup": "NotoSansExt",
+			"naming": {
+				"en_US": "Nowar Wide UI",
+				"zh_CN": "有爱宽黑体 UI",
+				"zh_TW": "有愛寬黑體 UI",
+				"ja_JP": "Nowar Wide UI"
+			}
+		},
+		"NeoSans": {
+			"isMono": false,
+			"latinGroup": "Roboto",
+			"naming": {
+				"en_US": "Nowar Neo Sans",
+				"zh_CN": "有爱新异黑",
+				"zh_TW": "有愛新異黑",
+				"ja_JP": "Nowar Neo Sans"
+			}
+		},
+		"NeoUI": {
+			"isPWID": true,
+			"isMono": false,
+			"latinGroup": "Roboto",
+			"naming": {
+				"en_US": "Nowar Neo UI",
+				"zh_CN": "有爱新异黑 UI",
+				"zh_TW": "有愛新異黑 UI",
+				"ja_JP": "Nowar Neo UI"
+			}
+		},
+		"NeoCompactSans": {
+			"isMono": false,
+			"latinGroup": "RobotoCond",
+			"naming": {
+				"en_US": "Nowar Neo Compact Sans",
+				"zh_CN": "有爱新异窄黑",
+				"zh_TW": "有愛新異窄黑",
+				"ja_JP": "Nowar Neo Compact Sans"
+			}
+		},
+		"NeoCompactUI": {
+			"isPWID": true,
+			"isMono": false,
+			"latinGroup": "RobotoCond",
+			"naming": {
+				"en_US": "Nowar Neo Compact UI",
+				"zh_CN": "有爱新异窄黑 UI",
+				"zh_TW": "有愛新異窄黑 UI",
+				"ja_JP": "Nowar Neo Compact UI"
+			}
 		}
 	},
 
@@ -64,9 +127,11 @@
 	],
 	"styles": {
 		"ExLt": {
+			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"name": "ExtraLight"
 		},
 		"ExLtIt": {
+			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"italic": true,
 			"name": "ExtraLight Italic",
 			"cjkStyleMap": "ExLt"
@@ -104,86 +169,88 @@
 			"cjkStyleMap": "Bd"
 		},
 		"ExBd": {
+			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"name": "ExtraBold"
 		},
 		"ExBdIt": {
+			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"italic": true,
 			"name": "ExtraBold Italic",
 			"cjkStyleMap": "ExBd"
 		},
 		"CondExLt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed ExtraLight",
 			"cjkStyleMap": "ExLt"
 		},
 		"CondExLtIt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
 			"name": "Condensed ExtraLight Italic",
 			"cjkStyleMap": "ExLt"
 		},
 		"CondLt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed Light",
 			"cjkStyleMap": "Lt"
 		},
 		"CondLtIt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
 			"name": "Condensed Light Italic",
 			"cjkStyleMap": "Lt"
 		},
 		"Cond": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed",
 			"cjkStyleMap": "R"
 		},
 		"CondIt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
 			"name": "Condensed Italic",
 			"cjkStyleMap": "R"
 		},
 		"CondM": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed Medium",
 			"cjkStyleMap": "M"
 		},
 		"CondMIt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
 			"name": "Condensed Medium Italic",
 			"cjkStyleMap": "M"
 		},
 		"CondBd": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed Bold",
 			"cjkStyleMap": "Bd"
 		},
 		"CondBdIt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
 			"name": "Condensed Bold Italic",
 			"cjkStyleMap": "Bd"
 		},
 		"CondExBd": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed ExtraBold",
 			"cjkStyleMap": "ExBd"
 		},
 		"CondExBdIt": {
-			"ignore": ["CompactSans", "CompactUI"],
+			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
 			"name": "Condensed ExtraBold Italic",
