@@ -25,7 +25,7 @@ for rv in ${regionalVariant[@]}; do
 			mainFile=Nowar-${warcraftFamilyMap[$warf]}-$rv-${weightFilenameMap[$w]}
 			numberFile=Nowar-${warcraftFamilyMap[$warf]}-$rv-${weightCondensedFilenameMap[$w]}
 			outfile=Nowar-$warf-$rv-${weightFilenameMap[$w]}
-			otfccdump --pretty --no-bom --ignore-hints ttf/$mainFile.ttf | sed "${warcraftRenameMap[$warf]}" > warcraft-ext/$mainFile.otd
+			otfccdump --pretty --no-bom --ignore-hints ttf/$mainFile.ttf | sed "s/; ttfautohint (v*.*)//;${warcraftRenameMap[$warf]}" > warcraft-ext/$mainFile.otd
 			otfccdump --pretty --no-bom --ignore-hints ttf/$numberFile.ttf -o warcraft-ext/$numberFile.otd
 			python <<EOF
 import json
