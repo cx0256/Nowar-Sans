@@ -1,9 +1,10 @@
 Usage() {
 	cd out/
-	mkdir -p Morpheus/
-	cp -R ../build/pass1/NeoUI-CN-Cond*.ttf Morpheus/
 	bash ../release-utility/generate-wow-pack-roboto.bash
 }
+
+mkdir -p Morpheus/
+cp -R ../build/pass1/NeoUI-CN-Cond*.ttf Morpheus/
 
 ver=$(cat ../package.json | grep version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 
