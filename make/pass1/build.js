@@ -90,6 +90,10 @@ async function pass(ctx, config, argv) {
 	// condense
 	if (argv.condense) condense(b, 0.9);
 
+	// fix OS/2 table
+	a.OS_2.usWeightClass = globalConfig.styles[argv.style].weight;
+	a.OS_2.usWidthClass = globalConfig.styles[argv.style].width;
+
 	// merge and build
 	await ctx.run(mergeBelow, "a", "a", "c", { mergeOTL: true });
 	await ctx.run(mergeAbove, "a", "a", "b", { mergeOTL: true });

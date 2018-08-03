@@ -127,64 +127,92 @@
 	],
 	"styles": {
 		"ExLt": {
+			"weight": 200,
+			"width": 5,
 			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"name": "ExtraLight"
 		},
 		"ExLtIt": {
+			"weight": 200,
+			"width": 5,
 			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"italic": true,
 			"name": "ExtraLight Italic",
 			"cjkStyleMap": "ExLt"
 		},
 		"Lt": {
+			"weight": 300,
+			"width": 5,
 			"name": "Light"
 		},
 		"LtIt": {
+			"weight": 300,
+			"width": 5,
 			"italic": true,
 			"name": "Light Italic",
 			"cjkStyleMap": "Lt"
 		},
 		"R": {
+			"weight": 400,
+			"width": 5,
 			"name": "Regular"
 		},
 		"It": {
+			"weight": 400,
+			"width": 5,
 			"italic": true,
 			"name": "Italic",
 			"cjkStyleMap": "R"
 		},
 		"M": {
+			"weight": 500,
+			"width": 5,
 			"name": "Medium"
 		},
 		"MIt": {
+			"weight": 500,
+			"width": 5,
 			"italic": true,
 			"name": "Medium Italic",
 			"cjkStyleMap": "M"
 		},
 		"Bd": {
+			"weight": 700,
+			"width": 5,
 			"name": "Bold"
 		},
 		"BdIt": {
+			"weight": 700,
+			"width": 5,
 			"italic": true,
 			"name": "Bold Italic",
 			"cjkStyleMap": "Bd"
 		},
 		"ExBd": {
+			"weight": 800,
+			"width": 5,
 			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"name": "ExtraBold"
 		},
 		"ExBdIt": {
+			"weight": 800,
+			"width": 5,
 			"ignore": ["NeoCompactSans", "NeoCompactUI"],
 			"italic": true,
 			"name": "ExtraBold Italic",
 			"cjkStyleMap": "ExBd"
 		},
 		"CondExLt": {
+			"weight": 200,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed ExtraLight",
 			"cjkStyleMap": "ExLt"
 		},
 		"CondExLtIt": {
+			"weight": 200,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
@@ -192,12 +220,16 @@
 			"cjkStyleMap": "ExLt"
 		},
 		"CondLt": {
+			"weight": 300,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed Light",
 			"cjkStyleMap": "Lt"
 		},
 		"CondLtIt": {
+			"weight": 300,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
@@ -205,12 +237,16 @@
 			"cjkStyleMap": "Lt"
 		},
 		"Cond": {
+			"weight": 400,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed",
 			"cjkStyleMap": "R"
 		},
 		"CondIt": {
+			"weight": 400,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
@@ -218,12 +254,16 @@
 			"cjkStyleMap": "R"
 		},
 		"CondM": {
+			"weight": 500,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed Medium",
 			"cjkStyleMap": "M"
 		},
 		"CondMIt": {
+			"weight": 500,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
@@ -231,12 +271,16 @@
 			"cjkStyleMap": "M"
 		},
 		"CondBd": {
+			"weight": 700,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed Bold",
 			"cjkStyleMap": "Bd"
 		},
 		"CondBdIt": {
+			"weight": 700,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,
@@ -244,12 +288,16 @@
 			"cjkStyleMap": "Bd"
 		},
 		"CondExBd": {
+			"weight": 800,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"name": "Condensed ExtraBold",
 			"cjkStyleMap": "ExBd"
 		},
 		"CondExBdIt": {
+			"weight": 800,
+			"width": 3,
 			"ignore": ["CompactSans", "CompactUI", "WideSans", "WideUI", "NeoSans", "NeoUI", "NeoCompactSans", "NeoCompactUI"],
 			"condensed": true,
 			"italic": true,

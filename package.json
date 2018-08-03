@@ -1,6 +1,6 @@
 {
 	"name": "nowar-sans",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"main": "./run",
 	"dependencies": {
 		"caryll-iddb": "^0.1.2",
