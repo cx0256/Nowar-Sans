@@ -1,7 +1,6 @@
 "use strict";
 
 const {
-	quadify,
 	rebase,
 	introduce,
 	setEncodings,
@@ -9,7 +8,6 @@ const {
 	gc,
 	merge: { above: mergeAbove, below: mergeBelow }
 } = require("megaminx");
-const { isKanji } = require("caryll-iddb");
 
 const italize = require("../common/italize");
 const condense = require("../common/condense");
@@ -18,47 +16,9 @@ const { nameFont } = require("./metadata.js");
 const fs = require("fs-extra");
 const path = require("path");
 
-const ENCODINGS = {
-	J: {
-		gbk: false,
-		big5: false,
-		jis: true,
-		korean: false
-	},
-	SC: {
-		gbk: true,
-		big5: false,
-		jis: false,
-		korean: false
-	},
-	CN: {
-		gbk: true,
-		big5: false,
-		jis: false,
-		korean: false
-	},
-	TC: {
-		gbk: false,
-		big5: true,
-		jis: false,
-		korean: false
-	},
-	TW: {
-		gbk: false,
-		big5: true,
-		jis: false,
-		korean: false
-	},
-	CL: {
-		gbk: false,
-		big5: true,
-		jis: false,
-		korean: false
-	}
-};
-
 const globalConfig = fs.readJsonSync(path.resolve(__dirname, "../../config.json"));
-const version = fs.readJsonSync(path.resolve(__dirname, "../../package.json")).version;
+const packageConfig = fs.readJsonSync(path.resolve(__dirname, "../../package.json"));
+const ENCODINGS = globalConfig.os2encodings;
 
 async function pass(ctx, config, argv) {
 	const a = await ctx.run(introduce, "a", {
@@ -100,9 +60,8 @@ async function pass(ctx, config, argv) {
 
 	await ctx.run(nameFont, "a", {
 		en_US: {
-			copyright:
-				"Copyright 2018 Cyano Hao (c@cyano.cn), with Reserved Font Name 'Nowar', '有爱' and '有愛'. Portions Copyright 2015-2018, Belleve Invis (belleve@typeof.net). Portions Copyright © 2014, 2015 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. Portions Copyright 2011, 2012 Google Inc.",
-			version: fs.readJsonSync(path.resolve(__dirname, "../../package.json")).version,
+			copyright: globalConfig.copyright,
+			version: packageConfig.version,
 			family: globalConfig.families[argv.family].naming.en_US + " " + argv.subfamily,
 			style: globalConfig.styles[argv.style].name
 		},
@@ -112,6 +71,10 @@ async function pass(ctx, config, argv) {
 		},
 		zh_TW: {
 			family: globalConfig.families[argv.family].naming.zh_TW + " " + argv.subfamily,
+			style: globalConfig.styles[argv.style].name
+		},
+		zh_HK: {
+			family: globalConfig.families[argv.family].naming.zh_HK + " " + argv.subfamily,
 			style: globalConfig.styles[argv.style].name
 		},
 		ja_JP: {

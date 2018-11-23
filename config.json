@@ -11,6 +11,7 @@
 				"en_US": "Nowar Sans",
 				"zh_CN": "有爱黑体",
 				"zh_TW": "有愛黑體",
+				"zh_HK": "有愛黑體",
 				"ja_JP": "Nowar Sans"
 			}
 		},
@@ -22,6 +23,7 @@
 				"en_US": "Nowar UI",
 				"zh_CN": "有爱黑体 UI",
 				"zh_TW": "有愛黑體 UI",
+				"zh_HK": "有愛黑體 UI",
 				"ja_JP": "Nowar UI"
 			}
 		},
@@ -32,6 +34,7 @@
 				"en_US": "Nowar Compact Sans",
 				"zh_CN": "有爱窄黑体",
 				"zh_TW": "有愛窄黑體",
+				"zh_HK": "有愛窄黑體",
 				"ja_JP": "Nowar Compact Sans"
 			}
 		},
@@ -43,6 +46,7 @@
 				"en_US": "Nowar Compact UI",
 				"zh_CN": "有爱窄黑体 UI",
 				"zh_TW": "有愛窄黑體 UI",
+				"zh_HK": "有愛窄黑體 UI",
 				"ja_JP": "Nowar Compact UI"
 			}
 		},
@@ -53,6 +57,7 @@
 				"en_US": "Nowar Wide Sans",
 				"zh_CN": "有爱宽黑体",
 				"zh_TW": "有愛寬黑體",
+				"zh_HK": "有愛寬黑體",
 				"ja_JP": "Nowar Wide Sans"
 			}
 		},
@@ -64,6 +69,7 @@
 				"en_US": "Nowar Wide UI",
 				"zh_CN": "有爱宽黑体 UI",
 				"zh_TW": "有愛寬黑體 UI",
+				"zh_HK": "有愛寬黑體 UI",
 				"ja_JP": "Nowar Wide UI"
 			}
 		},
@@ -72,8 +78,9 @@
 			"latinGroup": "Roboto",
 			"naming": {
 				"en_US": "Nowar Neo Sans",
-				"zh_CN": "有爱新异黑",
-				"zh_TW": "有愛新異黑",
+				"zh_CN": "Nowar Neo Sans",
+				"zh_TW": "Nowar Neo Sans",
+				"zh_HK": "Nowar Neo Sans",
 				"ja_JP": "Nowar Neo Sans"
 			}
 		},
@@ -83,8 +90,9 @@
 			"latinGroup": "Roboto",
 			"naming": {
 				"en_US": "Nowar Neo UI",
-				"zh_CN": "有爱新异黑 UI",
-				"zh_TW": "有愛新異黑 UI",
+				"zh_CN": "Nowar Neo UI",
+				"zh_TW": "Nowar Neo UI",
+				"zh_HK": "Nowar Neo UI",
 				"ja_JP": "Nowar Neo UI"
 			}
 		},
@@ -93,8 +101,9 @@
 			"latinGroup": "RobotoCond",
 			"naming": {
 				"en_US": "Nowar Neo Compact Sans",
-				"zh_CN": "有爱新异窄黑",
-				"zh_TW": "有愛新異窄黑",
+				"zh_CN": "Nowar Neo Compact Sans",
+				"zh_TW": "Nowar Neo Compact Sans",
+				"zh_HK": "Nowar Neo Compact Sans",
 				"ja_JP": "Nowar Neo Compact Sans"
 			}
 		},
@@ -104,8 +113,9 @@
 			"latinGroup": "RobotoCond",
 			"naming": {
 				"en_US": "Nowar Neo Compact UI",
-				"zh_CN": "有爱新异窄黑 UI",
-				"zh_TW": "有愛新異窄黑 UI",
+				"zh_CN": "Nowar Neo Compact UI",
+				"zh_TW": "Nowar Neo Compact UI",
+				"zh_HK": "Nowar Neo Compact UI",
 				"ja_JP": "Nowar Neo Compact UI"
 			}
 		}
@@ -306,9 +316,20 @@
 		} 
 	},
 
-	"subfamilyOrder": ["CN", "TW"],
+	"subfamilyOrder": ["CN", "TW", "HK"],
 	"subfamilies": {
 		"CN": { "name": "CN" },
-		"TW": { "name": "TW" }
-	}
+		"TW": { "name": "TW" },
+		"HK": { "name": "HK" }
+	},
+
+	"os2encodings": {
+		"J": { "gbk": false, "big5": false, "jis": true, "korean": false },
+		"CN": { "gbk": true, "big5": false, "jis": false, "korean": false },
+		"TW": { "gbk": false, "big5": true, "jis": false, "korean": false },
+		"HK": { "gbk": false, "big5": true, "jis": false, "korean": false },
+		"CL": { "gbk": false, "big5": true, "jis": false, "korean": false }
+	},
+
+	"copyright": "Copyright 2018 Cyano Hao (c@cyano.cn), with Reserved Font Name 'Nowar', '有爱' and '有愛'. Portions Copyright 2015-2018, Belleve Invis (belleve@typeof.net). Portions Copyright © 2014, 2015, 2018 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. Portions Copyright 2015 Google Inc."
 }
