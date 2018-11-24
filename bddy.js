@@ -184,7 +184,7 @@ module.exports = function(ctx, the) {
 	// SHS dumps
 	the.file(`build/shs/*.otd`).def(async function(target) {
 		const name = target.$1;
-		const [_, $1] = await this.need(target.dir, `sources/shs/${name}.ttf`);
+		const [_, $1] = await this.need(target.dir, `sources/shs/${name}.otf`);
 		await this.run(`otfccdump`, `-o`, target, $1);
 	});
 

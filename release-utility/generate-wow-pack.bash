@@ -8,9 +8,7 @@ cp -R ../build/pass1/UI-CN-Cond*.ttf Morpheus/
 
 ver=$(cat ../package.json | grep version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 
-regionalVariant=(CN TW)
-declare -A regionalVariantName
-regionalVariantName=([CN]=CN [TW]=TW)
+regionalVariant=(CN TW HK)
 
 chatFontWidth=(Compact Condensed)
 declare -A chatFontWidthName
@@ -67,26 +65,46 @@ getHansChatFont() {
 
 getHantFont() {
 	# getHantFont regionalVariant chatFontWidth weight
-	echo Nowar-WarcraftSans-TW-${weightFilenameMap[$3]}.ttf
+	if [[ "$1" == "HK" ]]; then
+		echo Nowar-WarcraftSans-HK-${weightFilenameMap[$3]}.ttf
+	else
+		echo Nowar-WarcraftSans-TW-${weightFilenameMap[$3]}.ttf
+	fi
 }
 
 getHantCombatFont() {
 	# getHantFont regionalVariant chatFontWidth weight
-	echo Nowar-WideSans-TW-${weightFilenameMap[$3]}.ttf
+	if [[ "$1" == "HK" ]]; then
+		echo Nowar-WideSans-HK-${weightFilenameMap[$3]}.ttf
+	else
+		echo Nowar-WideSans-TW-${weightFilenameMap[$3]}.ttf
+	fi
 }
 
 getHantNoteFont() {
 	# getHantFont regionalVariant chatFontWidth weight
-	echo Nowar-Sans-TW-${weightFilenameMap[$3]}.ttf
+	if [[ "$1" == "HK" ]]; then
+		echo Nowar-Sans-HK-${weightFilenameMap[$3]}.ttf
+	else
+		echo Nowar-Sans-TW-${weightFilenameMap[$3]}.ttf
+	fi
 }
 
 getHantChatFont() {
 	# getHantChatFont regionalVariant chatFontWidth weight
-	case $2 in
-		Normal) echo Nowar-Sans-TW-${weightFilenameMap[$3]}.ttf;;
-		Compact) echo Nowar-CompactSans-TW-${weightFilenameMap[$3]}.ttf;;
-		Condensed) echo Nowar-Sans-TW-${weightCondensedFilenameMap[$3]}.ttf;;
-	esac
+	if [[ "$1" == "HK" ]]; then
+		case $2 in
+			Normal) echo Nowar-Sans-HK-${weightFilenameMap[$3]}.ttf;;
+			Compact) echo Nowar-CompactSans-HK-${weightFilenameMap[$3]}.ttf;;
+			Condensed) echo Nowar-Sans-HK-${weightCondensedFilenameMap[$3]}.ttf;;
+		esac
+	else
+		case $2 in
+			Normal) echo Nowar-Sans-TW-${weightFilenameMap[$3]}.ttf;;
+			Compact) echo Nowar-CompactSans-TW-${weightFilenameMap[$3]}.ttf;;
+			Condensed) echo Nowar-Sans-TW-${weightCondensedFilenameMap[$3]}.ttf;;
+		esac
+	fi
 }
 
 for rv in ${regionalVariant[@]}; do
@@ -116,7 +134,7 @@ for rv in ${regionalVariant[@]}; do
 			cp warcraft-ext/$hansFont Fonts/ARKai_T.ttf
 			cp warcraft-ext/$hantFont Fonts/bLEI00D.ttf
 			cp ../release-utility/license-wow-pack.txt Fonts/LICENSE.txt
-			7z a -t7z -m0=LZMA:d=512m:fb=273 -ms -mmt=on ${regionalVariantName[$rv]}-${chatFontWidthName[$cfw]}-$w-$ver.7z Fonts/
+			7z a -t7z -m0=LZMA:d=512m:fb=273 -ms -mmt=on $rv-${chatFontWidthName[$cfw]}-$w-$ver.7z Fonts/
 			rm -r Fonts
 		done
 	done

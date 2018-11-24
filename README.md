@@ -8,47 +8,19 @@ This is Nowar Sans, a fully-hinted Chinese font family based on Noto Sans, Robot
 
 The unhinted version of Nowar Sans, is originally made for customized _World of Warcraft_ font packs, `WoW 有爱黑体` and `WoW 有愛黑體`. And that’s why it is named after “Nowar” (“有爱” / “有愛”).
 
-## To Build
+## Guide for Getting Nowar Sans
 
-**WARNING**: 100 GiB free disk space on SSD required. When running with `-j8`, it requires up to 24 GiB free memory, and takes about 24 hours.
+Nowar Sans font files can be found at [Releases](https://github.com/CyanoHao/Nowar-Sans/releases).
 
-You need [Node.js](https://nodejs.org/en/) 8.5 (or newer), [otfcc](https://github.com/caryll/otfcc), [AFDKO](http://www.adobe.com/devnet/opentype/afdko.html) and [ttfautohint](https://www.freetype.org/ttfautohint) installed, then run:
+“Nowar Sans _version_” are general purpose fonts, provided in `ttf` and `ttc` format.
+- `NowarSansTTC-<version>.7z` contains all `ttc` files. These `ttc` files contain too much fonts, which are not available in legacy Windows. If they’re not available, try `ttf` files instead.
+- `NowarSansTTF-<version>.7z` contains all `ttf` files. `ttf` files are more compatible (even available in Windows 98) but **really huge** (~ 12.7 GiB).
 
-```bash
-npm install
-```
+“WoW Font Pack _version_ (Humanist/Neo-Grotesque)” are _World of Warcraft_ WoW font pack.
+- “Humanist” and “Neo-Grotesque” are different in Latin, Greek and Cyrillic family (see “What are the names?” below).
+- See “What Are the Names? → Premade WoW Font Packs” for more information about font styles.
 
-after the NPM packages are installed, run
-
-```bash
-node build ttf
-```
-
-to build the TTF files, it would be in `build/out` directory.
-
-To build TTC, type
-
-```bash
-node build ttc
-```
-
-instead, the files would be in `build/ttc` directory.
-
-### I Need an Unhinted Version
-
-It is possible but really difficult to edit the script to generate an unhinted version of the fonts.
-
-It is recommanded to remove hint from generated `ttf` files:
-
-```bash
-for file in *.ttf ; do
-    otfccdump --ignore-hints --pretty $file | sed 's/; ttfautohint (v*.*)//' | otfccbuild -o $file -O3
-done
-```
-
-`sed` changes the version string, and `--pretty` decreases memory consumption by `sed`.
-
-By the way, if you just want to build an unhinted font for WoW font pack (or any other purpose), merging with [FontForge](https://fontforge.github.io/) is a good choise.
+To apply WoW font pack, download the one you like, then extract it and move `Fonts` to `World of Warcraft/`.
 
 ## What Are the Names?
 
@@ -65,12 +37,14 @@ By the way, if you just want to build an unhinted font for WoW font pack (or any
 - Regional variants
   - CN: CJK Ideographs follow 通用规范汉字表.
   - TW: CJK Ideographs follow 國字標準字體.
+  - HK: CJK Ideographs follow 中文電腦字形參考指引.
 
 ### Premade WoW Font Packs
 
 - Regional variants
   - CN: CN variant preferred (CN variant for English and 简体中文, TW variant for 繁體中文)
   - TW: TW variant preferred (TW variant for English and 繁體中文, CN variant for 简体中文)
+  - HK: HK variant preferred (HK variant for English and 繁體中文, CN variant for 简体中文)
 - Chat fonts
   - 95: Chat font use Compact variant (CJK Ideographs are full width).
   - 90: Chat font use Condensed variant (CJK Ideographs are condensed).
@@ -99,6 +73,54 @@ There are 6 weights.
 ### Why Are Latin, Greek and Cyrillic Characters “Semi-Condensed”?
 
 If not, numbers may be displayed incompletely in WoW 简体中文 and 繁體中文, such as character level in legacy guild frame, and numbers of reagents in profession crafting frame.
+
+## To Build
+
+**WARNING**: 140 GiB free disk space required. When running with `-j8`, it requires up to 24 GiB free memory, and takes about 24 hours.
+
+You need [Node.js](https://nodejs.org/en/) 8.5 (or newer), [otfcc](https://github.com/caryll/otfcc), [AFDKO](http://www.adobe.com/devnet/opentype/afdko.html) and [ttfautohint](https://www.freetype.org/ttfautohint) installed, then run:
+
+```bash
+npm install
+```
+
+after the NPM packages are installed, run
+
+```bash
+node build ttf
+```
+
+to build the TTF files, it would be in `build/out` directory.
+
+To build TTC, type
+
+```bash
+node build ttc
+```
+
+instead, the files would be in `build/ttc` directory.
+
+### Boost Building Process
+
+Since [Nowar Sans 0.3.9](https://github.com/CyanoHao/Nowar-Sans/releases/tag/v0.3.9), ideohint cache files are also provided. With existing cache files, building time will be reduced by up to 60%.
+
+To make use of cache file, just download `nowar-ideohint-cache-<version>.7z`, then extract it and move `hint-_sg{1,2,3,4,5,6}.hgc` to `Nowar-Sans/hint/build/` before building.
+
+### I Need an Unhinted Version
+
+It is possible but really difficult to edit the script to generate an unhinted version of the fonts.
+
+It is recommanded to remove hint from generated `ttf` files:
+
+```bash
+for file in *.ttf ; do
+    otfccdump --ignore-hints --pretty $file | sed 's/; ttfautohint (v*.*)//' | otfccbuild -o $file -O3
+done
+```
+
+`sed` changes the version string, and `--pretty` decreases memory consumption by `sed`.
+
+By the way, if you just want to build an unhinted font for WoW font pack (or any other purpose), merging with [FontForge](https://fontforge.github.io/) is a good choise.
 
 ## Credit
 

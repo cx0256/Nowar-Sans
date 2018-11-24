@@ -3,13 +3,13 @@ Usage() {
 	bash ../release-utility/generate-warcraft-ext.bash
 }
 
-regionalVariant=(CN TW)
+regionalVariant=(CN TW HK)
 
 warcraftFamily=(WarcraftSans NeoWarcraftSans)
 declare -A warcraftFamilyMap
 warcraftFamilyMap=([WarcraftSans]=Sans [NeoWarcraftSans]=NeoSans)
 declare -A warcraftRenameMap
-warcraftRenameMap=([WarcraftSans]="s/Nowar Sans/Nowar Warcraft Sans/;s/Nowar-Sans/Nowar-Warcraft-Sans/;s/有爱黑体/有爱魔兽黑体/;s/有愛黑體/有愛魔獸黑體/" [NeoWarcraftSans]="s/Nowar Neo Sans/Nowar Neo Warcraft Sans/;s/Nowar-Neo-Sans/Nowar-Neo-Warcraft-Sans/;s/有爱新异黑/有爱新异魔兽黑/;s/有愛新異黑/有愛新異魔獸黑/")
+warcraftRenameMap=([WarcraftSans]="s/Nowar Sans/Nowar Warcraft Sans/;s/Nowar-Sans/Nowar-Warcraft-Sans/;s/有爱黑体/有爱魔兽黑体/;s/有愛黑體/有愛魔獸黑體/" [NeoWarcraftSans]="s/Nowar Neo Sans/Nowar Neo Warcraft Sans/;s/Nowar-Neo-Sans/Nowar-Neo-Warcraft-Sans/")
 
 weight=(L R M B)
 declare -A weightFilenameMap
@@ -33,7 +33,8 @@ font = json.load(open("warcraft-ext/$mainFile.otd"))
 number = json.load(open("warcraft-ext/$numberFile.otd"))
 for n in ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]:
 	font["glyf"][n] = number["glyf"][n]
-json.dump(font, open("warcraft-ext/$outfile.otd", "w"), ensure_ascii=False)
+out = json.dumps(font, ensure_ascii=False)
+open("warcraft-ext/$outfile.otd", "w").write(out)
 EOF
 			otfccbuild -O3 --keep-average-char-width warcraft-ext/$outfile.otd -o warcraft-ext/$outfile.ttf
 		done
