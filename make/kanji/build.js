@@ -2,6 +2,7 @@
 
 const { quadify, introduce, build, gc } = require("megaminx");
 const { isKanji } = require("caryll-iddb");
+const { isHangul } = require("./hangul")
 
 async function pass(ctx, config, argv) {
 	const a = await ctx.run(introduce, "a", {
@@ -10,7 +11,8 @@ async function pass(ctx, config, argv) {
 		ignoreHints: true
 	});
 	for (let c in a.cmap) {
-		if (!isKanji(c - 0)) a.cmap[c] = null;
+		if (!isKanji(c - 0) && !isHangul(c - 0))
+			a.cmap[c] = null;
 	}
 	await ctx.run(quadify, "a");
 	a.cvt_ = [];
