@@ -12,7 +12,8 @@
 				"zh_CN": "有爱黑体",
 				"zh_TW": "有愛黑體",
 				"zh_HK": "有愛黑體",
-				"ja_JP": "Nowar Sans"
+				"ja_JP": "Nowar Sans",
+				"ko_KR": "Nowar Sans"
 			}
 		},
 		"UI": {
@@ -24,7 +25,8 @@
 				"zh_CN": "有爱黑体 UI",
 				"zh_TW": "有愛黑體 UI",
 				"zh_HK": "有愛黑體 UI",
-				"ja_JP": "Nowar UI"
+				"ja_JP": "Nowar UI",
+				"ko_KR": "Nowar UI"
 			}
 		},
 		"CompactSans": {
@@ -35,7 +37,8 @@
 				"zh_CN": "有爱窄黑体",
 				"zh_TW": "有愛窄黑體",
 				"zh_HK": "有愛窄黑體",
-				"ja_JP": "Nowar Compact Sans"
+				"ja_JP": "Nowar Compact Sans",
+				"ko_KR": "Nowar Compact Sans"
 			}
 		},
 		"CompactUI": {
@@ -47,7 +50,8 @@
 				"zh_CN": "有爱窄黑体 UI",
 				"zh_TW": "有愛窄黑體 UI",
 				"zh_HK": "有愛窄黑體 UI",
-				"ja_JP": "Nowar Compact UI"
+				"ja_JP": "Nowar Compact UI",
+				"ko_KR": "Nowar Compact UI"
 			}
 		},
 		"WideSans": {
@@ -58,7 +62,8 @@
 				"zh_CN": "有爱宽黑体",
 				"zh_TW": "有愛寬黑體",
 				"zh_HK": "有愛寬黑體",
-				"ja_JP": "Nowar Wide Sans"
+				"ja_JP": "Nowar Wide Sans",
+				"ko_KR": "Nowar Wide Sans"
 			}
 		},
 		"WideUI": {
@@ -70,7 +75,8 @@
 				"zh_CN": "有爱宽黑体 UI",
 				"zh_TW": "有愛寬黑體 UI",
 				"zh_HK": "有愛寬黑體 UI",
-				"ja_JP": "Nowar Wide UI"
+				"ja_JP": "Nowar Wide UI",
+				"ko_KR": "Nowar Wide UI"
 			}
 		},
 		"NeoSans": {
@@ -81,7 +87,8 @@
 				"zh_CN": "Nowar Neo Sans",
 				"zh_TW": "Nowar Neo Sans",
 				"zh_HK": "Nowar Neo Sans",
-				"ja_JP": "Nowar Neo Sans"
+				"ja_JP": "Nowar Neo Sans",
+				"ko_KR": "Nowar Neo Sans"
 			}
 		},
 		"NeoUI": {
@@ -93,7 +100,8 @@
 				"zh_CN": "Nowar Neo UI",
 				"zh_TW": "Nowar Neo UI",
 				"zh_HK": "Nowar Neo UI",
-				"ja_JP": "Nowar Neo UI"
+				"ja_JP": "Nowar Neo UI",
+				"ko_KR": "Nowar Neo UI"
 			}
 		},
 		"NeoCompactSans": {
@@ -104,7 +112,8 @@
 				"zh_CN": "Nowar Neo Compact Sans",
 				"zh_TW": "Nowar Neo Compact Sans",
 				"zh_HK": "Nowar Neo Compact Sans",
-				"ja_JP": "Nowar Neo Compact Sans"
+				"ja_JP": "Nowar Neo Compact Sans",
+				"ko_KR": "Nowar Neo Compact Sans"
 			}
 		},
 		"NeoCompactUI": {
@@ -116,7 +125,8 @@
 				"zh_CN": "Nowar Neo Compact UI",
 				"zh_TW": "Nowar Neo Compact UI",
 				"zh_HK": "Nowar Neo Compact UI",
-				"ja_JP": "Nowar Neo Compact UI"
+				"ja_JP": "Nowar Neo Compact UI",
+				"ko_KR": "Nowar Neo Compact UI"
 			}
 		}
 	},
@@ -316,11 +326,12 @@
 		} 
 	},
 
-	"subfamilyOrder": ["CN", "TW", "HK"],
+	"subfamilyOrder": ["CN", "TW", "HK", "CL"],
 	"subfamilies": {
 		"CN": { "name": "CN" },
 		"TW": { "name": "TW" },
-		"HK": { "name": "HK" }
+		"HK": { "name": "HK" },
+		"CL": { "name": "CL" }
 	},
 
 	"os2encodings": {

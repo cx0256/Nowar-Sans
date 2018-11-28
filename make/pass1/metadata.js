@@ -46,7 +46,8 @@ const langIDMap = {
 	zh_CN: 2052,
 	zh_TW: 1028,
 	zh_HK: 3076,
-	ja_JP: 1041
+	ja_JP: 1041,
+	ko_KR: 1042
 };
 
 function createNameTuple(nameTable, langID, family, style, localizedStyle) {
