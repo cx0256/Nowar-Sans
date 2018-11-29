@@ -202,27 +202,26 @@ module.exports = function(ctx, the) {
 	});
 
 	// buildint TTC files
-	the.virt(`out/ttc/${PREFIX}-*-parts`).def(async function(target) {
-		const style = target.$1;
+	the.virt(`out/ttc/${PREFIX}-*-*-parts`).def(async function(target) {
+		const { $1:subfamily, $2: style } = target;
 		let reqs = [];
-		for (let f of FAMILIES)
-			for (let sf of SUBFAMILIES) {
-				if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
-					continue;
-				reqs.push(`out/ttf/${PREFIX}-${f}-${sf}-${style}.ttf`);
-			}
+		for (let f of FAMILIES) {
+			if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
+				continue;
+			reqs.push(`out/ttf/${PREFIX}-${f}-${subfamily}-${style}.ttf`);
+		}
 		const [$$] = await this.need(reqs);
 		const ttcize = "node_modules/.bin/otfcc-ttcize" + (os.platform() === "win32" ? ".cmd" : "");
-		await this.run(ttcize, ...["--prefix", `out/ttc/${PREFIX}-${style}-parts`], ...$$, [
+		await this.run(ttcize, ...["--prefix", `out/ttc/${PREFIX}-${subfamily}-${style}-parts`], ...$$, [
 			"-k",
 			"-h"
 		]);
 	});
 
-	the.file(`out/ttc/${PREFIX}-*-parts.*.otd`).def(async function(target) {
-		await this.need(`out/ttc/${PREFIX}-${target.$1}-parts`);
+	the.file(`out/ttc/${PREFIX}-*-*-parts.*.otd`).def(async function(target) {
+		await this.need(`out/ttc/${PREFIX}-${target.$1}-${target.$2}-parts`);
 	});
-	the.file(`out/ttc/${PREFIX}-*-parts.*.ttf`).def(async function(target) {
+	the.file(`out/ttc/${PREFIX}-*-*-parts.*.ttf`).def(async function(target) {
 		const [$1] = await this.need(`${target.dir}/${target.name}.otd`);
 		await this.run(
 			"otfccbuild",
@@ -231,29 +230,27 @@ module.exports = function(ctx, the) {
 			["-k", "--subroutinize", "--keep-average-char-width"]
 		);
 	});
-	the.file(`out/ttc/${PREFIX}-*.ttc`).def(async function(target) {
-		const style = target.$1;
+	the.file(`out/ttc/${PREFIX}-*-*.ttc`).def(async function(target) {
+		const { $1: subfamily, $2: style } = target;
 		await this.check(target.dir);
 		{
 			let reqs = [];
-			for (let f of FAMILIES)
-				for (let sf of SUBFAMILIES) {
-					if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
-						continue;
-					reqs.push(`out/ttf/${PREFIX}-${f}-${sf}-${style}.ttf`);
-				}
+			for (let f of FAMILIES) {
+				if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
+					continue;
+				reqs.push(`out/ttf/${PREFIX}-${f}-${subfamily}-${style}.ttf`);
+			}
 			await this.need(...reqs);
 		}
 		{
 			let reqs = [],
 				n = 0;
-			for (let f of FAMILIES)
-				for (let sf of SUBFAMILIES) {
-					if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
-						continue;
-					reqs.push(`out/ttc/${PREFIX}-${style}-parts.${n}.ttf`);
-					n += 1;
-				}
+			for (let f of FAMILIES) {
+				if (config.styles[style].ignore && config.styles[style].ignore.indexOf(f) >= 0)
+					continue;
+				reqs.push(`out/ttc/${PREFIX}-${subfamily}-${style}-parts.${n}.ttf`);
+				n += 1;
+			}
 			const [_, $$] = await this.need(target.dir, reqs);
 			await this.run(`otf2otc`, ["-o", target], $$);
 			for (let r of $$) {
@@ -264,36 +261,63 @@ module.exports = function(ctx, the) {
 
 	// ttc virtual target
 	the.virt("ttc").def(async function(target) {
-		await this.need(...STYLES.map(st => `out/ttc/${PREFIX}-${st}.ttc`));
+		let reqs = [];
+		for (let sf of SUBFAMILIES)
+			reqs.push(...STYLES.map(st => `out/ttc/${PREFIX}-${sf}-${st}.ttc`));
+		await this.need(...reqs);
 	});
 
-	the.file(`out/sarasa-gothic-ttc-${version}.7z`).def(async function(target) {
+	the.file(`out/NowarSansTTC-${version}.7z`).def(async function(target) {
 		await this.need(`ttc`);
+		await this.cp(`LICENSE`, `out/ttc/LICENSE.txt`);
 		await this.cd(`out/ttc`).run(
 			`7z`,
 			`a`,
 			`-t7z`,
-			`-mmt=on`,
-			`-m0=LZMA:a=0:d=1536m:fb=256`,
+			`-ms=on`,
+			`-m0=LZMA:d=1536m:fb=273`,
 			`../${target.name}.7z`,
-			`*.ttc`
+			`LICENSE.txt`, `*-R.ttc`, `*-Cond.ttc`, `*-It.ttc`, `*-CondIt.ttc`
 		);
+		let weights = [ "ExLt", "Lt", "M", "Bd", "ExBd" ];
+		for (let w of weights)
+			await this.cd(`out/ttc`).run(
+				`7z`,
+				`a`,
+				`-t7z`,
+				`-ms=on`,
+				`-m0=LZMA:d=1536m:fb=273`,
+				`../${target.name}.7z`,
+				`*-${w}.ttc`, `*-Cond${w}.ttc`, `*-${w}It.ttc`, `*-Cond${w}It.ttc`
+			);
 	});
-	the.file(`out/sarasa-gothic-ttf-${version}.7z`).def(async function(target) {
+	the.file(`out/NowarSansTTF-${version}.7z`).def(async function(target) {
 		await this.need(`ttf`);
+		await this.cp(`LICENSE`, `out/ttf/LICENSE.txt`);
 		await this.cd(`out/ttf`).run(
 			`7z`,
 			`a`,
 			`-t7z`,
-			`-mmt=on`,
-			`-m0=LZMA:a=0:d=1536m:fb=256`,
+			`-ms=on`,
+			`-m0=LZMA:a=0:d=1536m:fb=273`,
 			`../${target.name}.7z`,
-			`*.ttf`
+			`LICENSE.txt`, `*-R.ttf`, `*-Cond.ttf`, `*-It.ttf`, `*-CondIt.ttf`
 		);
+		let weights = [ "ExLt", "Lt", "M", "Bd", "ExBd" ];
+		for (let w of weights)
+			await this.cd(`out/ttf`).run(
+				`7z`,
+				`a`,
+				`-t7z`,
+				`-ms=on`,
+				`-m0=LZMA:a=0:d=1536m:fb=273`,
+				`../${target.name}.7z`,
+				`*-${w}.ttf`, `*-Cond${w}.ttf`, `*-${w}It.ttf`, `*-Cond${w}It.ttf`
+			);
 	});
 
-	ctx.want(`out/sarasa-gothic-ttc-${version}.7z`);
-	ctx.want(`out/sarasa-gothic-ttf-${version}.7z`);
+	ctx.want(`out/NowarSansTTC-${version}.7z`);
+	ctx.want(`out/NowarSansTTF-${version}.7z`);
 
 	// cleanup
 	the.virt("clean").def(async function(target) {

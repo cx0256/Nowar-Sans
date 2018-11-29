@@ -71,10 +71,6 @@ There are 6 weights.
 
 ## To Build
 
-**WARNING**:
-- 160 GiB free disk space required to build `ttf`.
-- When running with `-j8`, it requires up to 24 GiB free memory, and takes more than 30 hours.
-
 You need [Node.js](https://nodejs.org/en/) 8.5 (or newer), [otfcc](https://github.com/caryll/otfcc), [AFDKO](http://www.adobe.com/devnet/opentype/afdko.html) and [ttfautohint](https://www.freetype.org/ttfautohint) installed, then run:
 
 ```bash
@@ -89,13 +85,21 @@ node build ttf
 
 to build the TTF files, it would be in `build/out` directory.
 
-<!-- To build TTC, type
+**WARNING**:
+- The directory `Nowar-Sans/` will eat up 160 GiB disk space when building `ttf`. (And it will shortly shrink to 48 GiB.)
+- When running with `-j8`, it requires up to 20 GiB memory, and takes more than 24 hours.
+
+To build TTC, type
 
 ```bash
 node build ttc
 ```
 
-instead, the files would be in `build/ttc` directory. -->
+instead, the files would be in `build/ttc` directory.
+
+**WARNING**:
+- The directory `Nowar-Sans/` will eat up 200 GiB disk space when building `ttc`. (And it will finally shrink to 52 GiB.)
+- When running with `-j8`, it requires up to 24 GiB memory, and takes about 6 hours if `ttf` has been already built.
 
 ### Boost Building Process
 
