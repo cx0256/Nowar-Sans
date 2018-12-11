@@ -20,7 +20,7 @@ Nowar Sans font files can be found at [Releases](https://github.com/CyanoHao/Now
 - “Humanist” and “Neo-Grotesque” are different in Latin, Greek and Cyrillic family (see “What are the names?” below).
 - See “What Are the Names? → Premade WoW Font Packs” for more information about font styles.
 
-To apply WoW font pack, download the one you like, then extract it and move `Fonts` to `World of Warcraft/`.
+To apply WoW font pack, download the one you like, then extract it and move `Fonts` to `World of Warcraft/_retail_/`.
 
 ## What Are the Names?
 
@@ -54,7 +54,7 @@ To apply WoW font pack, download the one you like, then extract it and move `Fon
   - B: Bold
   - [Morpheus (English title font) may be bolder or lighter.]
 
-Besides, you can make your own WoW Font Pack by copy `ttf` files to `World of Warcraft/Fonts` and rename them to `ARIALN.ttf`, `FRIZQT__.ttf`, …. Search web for more information.
+Besides, you can make your own WoW Font Pack by copy `ttf` files to `World of Warcraft/Fonts/_retail_/` and rename them to `ARIALN.ttf`, `FRIZQT__.ttf`, …. Search web for more information.
 
 ## Font Weight
 
